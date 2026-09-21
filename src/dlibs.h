@@ -1,8 +1,10 @@
+#ifndef DLIBS_H
+#define DLIBS_H
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <ctype.h>
 #include <unistd.h>
 #include <gtk/gtk.h>
@@ -48,7 +50,7 @@ typedef struct {
     char name[150];
     char description[600];
     char elemental[30];
-    float multiplicator;
+    float multiplier;
     int cooldownAttack;
     int index_addition;
     int recharge;
@@ -64,7 +66,7 @@ typedef struct {
 typedef struct {
     char elemental[30];
     char name[50];
-    char tittle[150];
+    char title[150];
     char history[1500];
     char img_path[400];
     char length[150];
@@ -81,11 +83,11 @@ typedef struct {
 
 typedef struct {
     int level;
-    int actualExp;
+    int currentExp;
     int requiredExp;
     int trainPoints;
     int progressPoints;
-    int actualProgress;
+    int currentProgress;
     Dragon dragon;
 } Player;
 
@@ -122,10 +124,10 @@ typedef struct {
     gint totalDamage;
     gint entityTurn;
     gint turnPlayed;
-    gint actualTurn;
+    gint currentTurn;
     gchar winnerEnt[100];
     gint expReward;
-    gint difficult;
+    gint difficulty;
 } Battle;
 
 typedef struct {
@@ -155,13 +157,13 @@ typedef struct {
     gboolean eFinishedAttack;
     gboolean finishedBattle;
     gboolean cooldownChecked;
-} logicalDoors;
+} BattleFlags;
 
 typedef struct {
     Battle *battle;
     MiniGame *minigame;
     GtkFixed *fixed;
-    GtkWidget *actualTurn;
+    GtkWidget *currentTurn;
     GtkWidget *pHealthBar;
     GtkWidget *eHealthBar;
     GtkStack *optionsStack;
@@ -169,7 +171,7 @@ typedef struct {
     GtkLabel *battleText;
     GtkLabel *turnsText;
     GtkBuilder *builder;
-    logicalDoors doors;
+    BattleFlags flags;
 } Game;
 
 typedef struct {
@@ -183,16 +185,16 @@ typedef struct {
 } audioSound;
 
 typedef struct {
-    audioMusic musics[50];
+    audioMusic tracks[50];
     audioSound sounds[50];
 } audioAssets;
 
 typedef struct {
-    gint musicsAvailable[30];
+    gint tracksAvailable[30];
     gint currentMusic;
     gboolean inBattle;
     gboolean isFinished;
-} musicsBeastiary;
+} tracksBestiary;
 
 // ###############################################################################
 
@@ -202,7 +204,7 @@ typedef struct {
 // File: audio_libs.c
 //###################################################################################
 extern audioAssets audioPointer; // Ponteiro global de onde estão todos os áudios
-extern musicsBeastiary musicsBackground; // Ponteiro global
+extern tracksBestiary tracksBackground; // Ponteiro global
 
 void initAudio(); // Inicia e carrega todos os áudios
 
@@ -234,7 +236,7 @@ int containSpecialchar(char *email);
 //###################################################################################
 int initPlayer(FILE *pFile, Player *newPlayer);
 Player getPlayer(FILE *pFile);
-int changePlayerStatus(FILE *pFile, int level, int points, int actualExp, int requiredExp, int progressPoints, int actualProgress, Dragon *dragon);
+int changePlayerStatus(FILE *pFile, int level, int points, int currentExp, int requiredExp, int progressPoints, int currentProgress, Dragon *dragon);
 Dragon trainplayerDragon(Dragon dragon, int lvls);
 int addExperiencetoPlayer(FILE *pFile, int exp);
 Dragon getplayerDragon(FILE *pFile, char *name, char *element);
@@ -243,7 +245,6 @@ Dragon getplayerDragon(FILE *pFile, char *name, char *element);
 // File: files_libs.c
 //###################################################################################
 FILE * createAccountslistfile();
-FILE * createBeastslistfile();
 FILE * createBeastslistfile();
 FILE * createAttackslistfile();
 FILE * getAccountfile(char *username);
@@ -270,20 +271,12 @@ void reinsFile(FILE *pFile);
 Dragon * bubbleSort(int type, Dragon * vector, int length);
 int printfDragonvector(Dragon * vector, int length);
 
-FILE * createAccountslistfile();
-FILE * createBeastslistfile();
-FILE * createAttackslistfile();
-void reinsFile(FILE *pFile);
-int accountsLength(FILE *pFile);
-int beastsLength(FILE *pFile);
-int attacksLength(FILE *pFile);
-
 //###################################################################################
 // File: battle_libs.c
 //###################################################################################
 void setBattleVariables(Battle *battleInstance, Dragon playerEnt, Dragon enemyEnt, Player player, gint dragonIndex);
 int startTurn(Battle *battleInstance, Game *game);
-int causeDamage(int damage, float multiplicator, int precision, char *type, Dragon *enemy);
+int causeDamage(int damage, float multiplier, int precision, char *type, Dragon *enemy);
 int debuffTick(Debuff *debuff, Entity *entity, gint entityNumber, Game *game);
 int applyDebuff(gchar *debuffType, gint turns, Entity *entity, gint *duplicated);
 int haveDebuff(gchar *type, Entity ent);
@@ -293,7 +286,7 @@ int haveDebuff(gchar *type, Entity ent);
 // main.c
 //---------------------------------------------------------------------------------
 void logStartAnimation(gchar *text, gchar *color, gchar *font_size, gint duration, gint height, gint width, gint x, gint y, gint yDirection, GtkFixed *fixed);
-void retroBarAnimationStart(gint timer, GtkWidget *widget, gint actualValue, gint newValue);
+void retroBarAnimationStart(gint timer, GtkWidget *widget, gint currentValue, gint newValue);
 gboolean on_draw_animation(GtkWidget *widget, cairo_t *cr, gpointer data);
 void settingTimedImageModifier(gint timeout, GtkWidget *widget, gchar *path);
 void updateDebuffAnimation(gint entityNumber, gchar *type, Debuff *debuff, gint animationType, gchar *status);
@@ -310,7 +303,7 @@ gboolean timedShakeScreen(gpointer data);
 gboolean shakeAnimation(gpointer user_data);
 void shakeScreen(gint timeout, GtkWindow *window, gint duration, gint intensity);
 void settingAttackAnimation(gint timeout, gint entityNumber, gint totalFrames, gchar *animationName, GtkFixed *fixed, gint size);
-void settingTimedMoveWidgetAnimation(gint timerAnimation, gint timeout, GtkWidget *widget, GtkFixed *fixed, gint actualX, gint actualY, gint finalPosX, gint finalPosY);
+void settingTimedMoveWidgetAnimation(gint timerAnimation, gint timeout, GtkWidget *widget, GtkFixed *fixed, gint currentX, gint currentY, gint finalPosX, gint finalPosY);
 // =================================================================================
 
 // Modifiers
@@ -318,3 +311,5 @@ void labeltextModifier(GtkLabel *label, const gchar *text);
 
 // Game
 gboolean onBattle(gpointer data);
+
+#endif // DLIBS_H

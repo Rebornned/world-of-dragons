@@ -15,7 +15,7 @@ int debuffTick(Debuff *debuff, Entity *entity, gint entityNumber, Game *game);
 int applyDebuff(gchar *debuffType, gint turns, Entity *entity, gint *duplicated);
 // ******************************************************************************
 // Damage
-int causeDamage(int damage, float multiplicator, int precision, char *type, Dragon *enemy);
+int causeDamage(int damage, float multiplier, int precision, char *type, Dragon *enemy);
 // ******************************************************************************
 // Turns
 int startTurn(Battle *battleInstance, Game *game);
@@ -32,7 +32,7 @@ int binarySearch(int item, int vec[], int length);
 // Funcao para iniciar os valores de uma batalha
 void setBattleVariables(Battle *battleInstance, Dragon playerEnt, Dragon enemyEnt, Player player, gint dragonIndex) {
     int cooldownsVector[4] = {0, 0, 0, 0};
-    battleInstance->actualTurn = 1;
+    battleInstance->currentTurn = 1;
     battleInstance->turnPlayed = 0;
     battleInstance->totalDamage = 0;
     battleInstance->expReward = player.requiredExp;
@@ -66,16 +66,16 @@ void setBattleVariables(Battle *battleInstance, Dragon playerEnt, Dragon enemyEn
 
     // Definição de dificuldade do dragão inimigo
     if (dragonIndex < 3) { // Dragão de nível Infernal
-        battleInstance->difficult = 4;
+        battleInstance->difficulty = 4;
     }
     else if (dragonIndex > 2  && dragonIndex < 8) { // Dragão de nível difícil
-        battleInstance->difficult = 3;
+        battleInstance->difficulty = 3;
     }
     else if (dragonIndex > 7  && dragonIndex < 16) { // Dragão de nível Média
-        battleInstance->difficult = 2;
+        battleInstance->difficulty = 2;
     }
     else if (dragonIndex > 15) { // Dragão de nível fácil
-        battleInstance->difficult = 1;
+        battleInstance->difficulty = 1;
     }
 
     // Decide quem vai atacar primeiro
@@ -83,7 +83,7 @@ void setBattleVariables(Battle *battleInstance, Dragon playerEnt, Dragon enemyEn
     else if(enemyEnt.speed > playerEnt.speed) battleInstance->entityTurn = 2;
     else if(playerEnt.speed == enemyEnt.speed) battleInstance->entityTurn = random_choice(1, 2);
 
-    // Zera os buffs e debbufs de ambas as entidades
+    // Zera os buffs e debuffs de ambas as entidades
     for(int i=0; i<4; i++)  {
         strcpy(battleInstance->EntityOne.entityBuffs[i].type, "");
         battleInstance->EntityOne.entityBuffs[i].turns = 0;
@@ -232,7 +232,7 @@ int haveDebuff(gchar *type, Entity ent) {
 // Damage
 // ###############################################################################
 // Funcao que calcula o dano que sera causado a entidade
-int causeDamage(int damage, float multiplicator, int precision, char *type, Dragon *enemy) {
+int causeDamage(int damage, float multiplier, int precision, char *type, Dragon *enemy) {
     if(precision <= 0)
         return -1; // MISS
     int choiceVector[precision], randomNumber, canHit = True, totalDamage = 0;
@@ -245,7 +245,7 @@ int causeDamage(int damage, float multiplicator, int precision, char *type, Drag
         return -1; // MISS
     }
     if(canHit == True) {
-        totalDamage = damage * multiplicator - enemy->defense*DEFENSE_SCALE;
+        totalDamage = damage * multiplier - enemy->defense*DEFENSE_SCALE;
         if(totalDamage < 0)
             return -1;
     }
@@ -296,7 +296,7 @@ int startTurn(Battle *battleInstance, Game *game) {
     if(bI->entityTurn == 1) bI->entityTurn = 2;
     else if(bI->entityTurn == 2) bI->entityTurn = 1;
     
-    bI->actualTurn++;
+    bI->currentTurn++;
 }
 
 // ###############################################################################

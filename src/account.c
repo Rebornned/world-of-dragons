@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-// Compilation: gcc -o account account.c files_libs.c sorts_libs.c
-// Cd bin: cd C:/Users/Amage/Desktop/Programacao/GKT_C/WorldOfDragons/bin
 
 //int newAccount(FILE *pFile, char *user, char *email, char *pass);
 int newAccount(FILE *pFile, char *user);
@@ -45,7 +43,7 @@ int main(int argc, char *argv[]) {
         getchar();
 
         scanf(" %[^\n]" ,inputStr);
-        strcpy(newDragon.tittle, inputStr);
+        strcpy(newDragon.title, inputStr);
         getchar();
 
         scanf("%[^\n]", inputStr);
@@ -102,13 +100,13 @@ int main(int argc, char *argv[]) {
 
     printf("%d\n", validateAccount(accountsFile, "Rambo", "1234"));
     Player actP = getPlayer(accountFile);
-    printf("\nPlayer status \nlevel: %d\nactualXp: %d\nrequiredXp: %d\nprogress: %d\npoints: %d\n", 
-    actP.level, actP.actualExp, actP.requiredExp, actP.progress, actP.trainPoints);
+    printf("\nPlayer status \nlevel: %d\ncurrentXp: %d\nrequiredXp: %d\nprogress: %d\npoints: %d\n", 
+    actP.level, actP.currentExp, actP.requiredExp, actP.progress, actP.trainPoints);
 
     printf("exp: %d\n", addExperiencetoPlayer(accountFile, 250000));
     actP = getPlayer(accountFile);
-    printf("\nPlayer status \nlevel: %d\nactualXp: %d\nrequiredXp: %d\nprogress: %d\npoints: %d\n", 
-    actP.level, actP.actualExp, actP.requiredExp, actP.progress, actP.trainPoints);
+    printf("\nPlayer status \nlevel: %d\ncurrentXp: %d\nrequiredXp: %d\nprogress: %d\npoints: %d\n", 
+    actP.level, actP.currentExp, actP.requiredExp, actP.progress, actP.trainPoints);
     
     //printf("%d\n", changePlayerStatus(playerFile, 10, 175, 150, 2, NULL));
     //newDragon = getplayerDragon(accountFile, "Meraxes");
@@ -117,8 +115,8 @@ int main(int argc, char *argv[]) {
     //printf("Lvl: %d | Health: %d | Attack: %d | Defense: %d | Speed: %d\n", newDragon.level, newDragon.health,
     //newDragon.attack, newDragon.defense, newDragon.speed);
     //actP = getPlayer(playerFile);
-    //printf("\nPlayer status \nlevel: %d\nactualXp: %d\nrequiredXp: %d\nprogress: %d\n", 
-    //actP.level, actP.actualExp, actP.requiredExp, actP.progress);
+    //printf("\nPlayer status \nlevel: %d\ncurrentXp: %d\nrequiredXp: %d\nprogress: %d\n", 
+    //actP.level, actP.currentExp, actP.requiredExp, actP.progress);
     //printf("%d\n", changePassword(accountsFile ,"rahs@gmail.com", "123456781", "123456781"));
     //printf("%d\n", validateAccount(accountsFile, "Rambo", "1234"));
     //printf("%d | \n", changePassword(accountsFile ,"Saleh@gmail.com", "12345678", "12345678"));
@@ -181,9 +179,9 @@ int checkEmail(char *email) {
 
     // Verifica se o email está terminando exatamente com o dominio.
     char *result = strstr(email, findDomain);
-    int ocorrencyDomain = strstr(email, findDomain) - email;
+    int domainIndex = strstr(email, findDomain) - email;
     if (result != NULL)
-        if(strlen(email) - strlen(findDomain) != ocorrencyDomain)
+        if(strlen(email) - strlen(findDomain) != domainIndex)
             return 1;
 
     // Verifica se o email contém caracteres especiais além do permitido.

@@ -5,7 +5,7 @@ Player getPlayer(FILE *pFile);
 Dragon trainplayerDragon(Dragon dragon, int lvls);
 
 int initPlayer(FILE *pFile, Player *newPlayer);
-int changePlayerStatus(FILE *pFile, int level, int points, int actualExp, int requiredExp, int progressPoints, int actualProgress, Dragon *dragon);
+int changePlayerStatus(FILE *pFile, int level, int points, int currentExp, int requiredExp, int progressPoints, int currentProgress, Dragon *dragon);
 int addExperiencetoPlayer(FILE *pFile, int exp);
 
 int initPlayer(FILE *pFile, Player *newPlayer) {
@@ -16,9 +16,9 @@ int initPlayer(FILE *pFile, Player *newPlayer) {
     fclose(experienceFile);
     *newPlayer = (Player){0};
     newPlayer->level = 0;
-    newPlayer->actualProgress = 0;
+    newPlayer->currentProgress = 0;
     newPlayer->progressPoints = 0;
-    newPlayer->actualExp = 0;
+    newPlayer->currentExp = 0;
     newPlayer->requiredExp = reqExp;
     newPlayer->trainPoints = 0;
     //memset(&newPlayer->dragon, 0, sizeof(newPlayer->dragon));  // Reseta o dragão do player
@@ -28,20 +28,20 @@ int initPlayer(FILE *pFile, Player *newPlayer) {
     return 0;
 }
 
-int changePlayerStatus(FILE *pFile, int level, int points, int actualExp, int requiredExp, int progressPoints, int actualProgress, Dragon *dragon) {
+int changePlayerStatus(FILE *pFile, int level, int points, int currentExp, int requiredExp, int progressPoints, int currentProgress, Dragon *dragon) {
     Player player = getPlayer(pFile);
     if(level != -1)
         player.level = level;
     if(points != -1)
         player.trainPoints = points;
-    if(actualExp != -1)
-        player.actualExp = actualExp;
+    if(currentExp != -1)
+        player.currentExp = currentExp;
     if(requiredExp != -1)
         player.requiredExp = requiredExp;
     if(progressPoints != -1)
         player.progressPoints = progressPoints;
-    if(actualProgress != -1)
-        player.actualProgress = actualProgress;
+    if(currentProgress != -1)
+        player.currentProgress = currentProgress;
     if(dragon != NULL)
         player.dragon = *dragon;
     
@@ -57,11 +57,11 @@ int addExperiencetoPlayer(FILE *pFile, int exp) {
     int reqExp = 0, lvl, lvlUp = 0;
     FILE *experienceFile = fopen("../files/lvls_experience.txt", "r");
     Player player = getPlayer(pFile);
-    player.actualExp += exp;
+    player.currentExp += exp;
 
-    while(player.actualExp >= player.requiredExp && player.level < 100) {
-        //printf("act: %d | required: %d\n", player.actualExp, player.requiredExp);
-        player.actualExp -= player.requiredExp;
+    while(player.currentExp >= player.requiredExp && player.level < 100) {
+        //printf("act: %d | required: %d\n", player.currentExp, player.requiredExp);
+        player.currentExp -= player.requiredExp;
         player.level++;
         player.trainPoints++;
         lvlUp++;
@@ -74,9 +74,9 @@ int addExperiencetoPlayer(FILE *pFile, int exp) {
     }
     if(player.level == 100) {
         player.requiredExp = -2;
-        player.actualExp = -2;
+        player.currentExp = -2;
     }
-    changePlayerStatus(pFile, player.level, player.trainPoints, player.actualExp, player.requiredExp, -1, -1, NULL);
+    changePlayerStatus(pFile, player.level, player.trainPoints, player.currentExp, player.requiredExp, -1, -1, NULL);
     return lvlUp;
 }
 

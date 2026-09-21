@@ -9,7 +9,7 @@
     <property name="can-focus">True</property>
     <property name="default-width">1000</property>
     <property name="default-height">600</property>
-    <property name="icon">../img_files\T_dragons_icon.png</property>
+    <property name="icon">../img_files/T_dragons_icon.png</property>
     <child>
       <object class="GtkStack" id="main_stack">
         <property name="name">main_stack</property>
@@ -34,7 +34,7 @@
                     <property name="name">fr1_img</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="pixbuf">../img_files\background_start.png</property>
+                    <property name="pixbuf">../img_files/background_start.png</property>
                   </object>
                   <packing>
                     <property name="index">-1</property>
@@ -43,13 +43,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkLabel" id="fr1_tittle_label">
-                <property name="name">fr1_tittle_label</property>
+              <object class="GtkLabel" id="fr1_title_label">
+                <property name="name">fr1_title_label</property>
                 <property name="width-request">847</property>
                 <property name="height-request">108</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Targaryen Dragons</property>
+                <property name="label" translatable="yes">World of Dragons</property>
                 <style>
                   <class name="universal_font"/>
                   <class name="font_size_96px"/>
@@ -68,7 +68,7 @@
                 <property name="height-request">80</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../img_files\targaryen_symbol.png</property>
+                <property name="pixbuf">../img_files/targaryen_symbol.png</property>
               </object>
               <packing>
                 <property name="x">109</property>
@@ -81,7 +81,7 @@
                 <property name="height-request">80</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../img_files\targaryen_symbol.png</property>
+                <property name="pixbuf">../img_files/targaryen_symbol.png</property>
               </object>
               <packing>
                 <property name="x">777</property>
@@ -1061,8 +1061,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFixed" id="fr5_beastiary">
-            <property name="name">fr5_beastiary</property>
+          <object class="GtkFixed" id="fr5_bestiary">
+            <property name="name">fr5_bestiary</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
@@ -1084,15 +1084,15 @@
               </object>
             </child>
             <child>
-              <object class="GtkLabel" id="fr5_tittle_label">
-                <property name="name">fr5_tittle_label</property>
+              <object class="GtkLabel" id="fr5_title_label">
+                <property name="name">fr5_title_label</property>
                 <property name="width-request">260</property>
                 <property name="height-request">58</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Bestiário</property>
                 <style>
-                  <class name="fr5_tittles"/>
+                  <class name="fr5_titles"/>
                 </style>
               </object>
               <packing>
@@ -1347,7 +1347,7 @@ Dificuldade: </property>
                             <property name="name">fr5_coliseum_img0</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="pixbuf">../img_files\dragons\battle_balerion.png</property>
+                            <property name="pixbuf">../img_files/dragons/battle_balerion.png</property>
                           </object>
                           <packing>
                             <property name="name">0</property>
@@ -1359,7 +1359,7 @@ Dificuldade: </property>
                             <property name="name">fr5_coliseum_img1</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="pixbuf">../img_files\dragons\battle_cannibal.png</property>
+                            <property name="pixbuf">../img_files/dragons/battle_cannibal.png</property>
                           </object>
                           <packing>
                             <property name="name">1</property>
@@ -1665,7 +1665,7 @@ Dificuldade: </property>
                           <class name="color_FF0000"/>
                           <class name="universal_font"/>
                           <class name="font_size_20px"/>
-                          <class name="fr5_beastiary_border"/>
+                          <class name="fr5_bestiary_border"/>
                         </style>
                       </object>
                       <packing>
@@ -2375,7 +2375,7 @@ Tamanho: 100-120 metros</property>
                           <class name="universal_font"/>
                           <class name="color_FFDDA6"/>
                           <class name="font_size_12px"/>
-                          <class name="fr5_beastiary_border"/>
+                          <class name="fr5_bestiary_border"/>
                         </style>
                       </object>
                       <packing>
@@ -2704,13 +2704,13 @@ Tamanho: 100-120 metros</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="fr5_beastiary_border">
-                        <property name="name">fr5_beastiary_border</property>
+                      <object class="GtkImage" id="fr5_bestiary_border">
+                        <property name="name">fr5_bestiary_border</property>
                         <property name="width-request">426</property>
                         <property name="height-request">408</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\beastiary_border.png</property>
+                        <property name="pixbuf">../img_files/bestiary_border.png</property>
                       </object>
                       <packing>
                         <property name="x">292</property>
@@ -2940,7 +2940,7 @@ Tamanho: 100-120 metros</property>
                                 <property name="height-request">52</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\fire_element.png</property>
+                                <property name="pixbuf">../img_files/fire_element.png</property>
                               </object>
                               <packing>
                                 <property name="x">63</property>
@@ -2954,7 +2954,7 @@ Tamanho: 100-120 metros</property>
                                 <property name="height-request">52</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\ice_element.png</property>
+                                <property name="pixbuf">../img_files/ice_element.png</property>
                               </object>
                               <packing>
                                 <property name="x">123</property>
@@ -2968,7 +2968,7 @@ Tamanho: 100-120 metros</property>
                                 <property name="height-request">52</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\wind_element.png</property>
+                                <property name="pixbuf">../img_files/wind_element.png</property>
                               </object>
                               <packing>
                                 <property name="x">185</property>
@@ -3037,8 +3037,8 @@ Tamanho: 100-120 metros</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkFixed" id="fr5_cave_actualdragon">
-                            <property name="name">fr5_cave_actualdragon</property>
+                          <object class="GtkFixed" id="fr5_cave_currentdragon">
+                            <property name="name">fr5_cave_currentdragon</property>
                             <property name="width-request">32</property>
                             <property name="height-request">32</property>
                             <property name="visible">True</property>
@@ -3054,8 +3054,8 @@ Tamanho: 100-120 metros</property>
                             </child>
                           </object>
                           <packing>
-                            <property name="name">fr5_cave_actualdragon</property>
-                            <property name="title" translatable="yes">fr5_cave_actualdragon</property>
+                            <property name="name">fr5_cave_currentdragon</property>
+                            <property name="title" translatable="yes">fr5_cave_currentdragon</property>
                             <property name="position">2</property>
                           </packing>
                         </child>
@@ -3359,7 +3359,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="single-line-mode">True</property>
                         <style>
                           <class name="fr5_cave_font"/>
-                          <class name="fr5_attack_tittle"/>
+                          <class name="fr5_attack_title"/>
                         </style>
                       </object>
                       <packing>
@@ -3609,7 +3609,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\unknown_attack.png</property>
+                        <property name="pixbuf">../img_files/unknown_attack.png</property>
                       </object>
                       <packing>
                         <property name="x">721</property>
@@ -3835,15 +3835,15 @@ Tempo de recarga: 1 turno(s)</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
-              <object class="GtkLabel" id="fr6_tittle_label">
-                <property name="name">fr6_tittle_label</property>
+              <object class="GtkLabel" id="fr6_title_label">
+                <property name="name">fr6_title_label</property>
                 <property name="width-request">260</property>
                 <property name="height-request">58</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Combate</property>
                 <style>
-                  <class name="fr5_tittles"/>
+                  <class name="fr5_titles"/>
                 </style>
               </object>
               <packing>
@@ -3861,18 +3861,18 @@ Tempo de recarga: 1 turno(s)</property>
                 <property name="transition-duration">600</property>
                 <property name="transition-type">crossfade</property>
                 <child>
-                  <object class="GtkFixed" id="fr6_stared">
-                    <property name="name">fr6_stared</property>
+                  <object class="GtkFixed" id="fr6_faceoff">
+                    <property name="name">fr6_faceoff</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <object class="GtkImage" id="fr6_stared_bg">
-                        <property name="name">fr6_stared_bg</property>
+                      <object class="GtkImage" id="fr6_faceoff_bg">
+                        <property name="name">fr6_faceoff_bg</property>
                         <property name="width-request">1000</property>
                         <property name="height-request">483</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\battle\Balerion_bg.png</property>
+                        <property name="pixbuf">../img_files/battle/balerion_bg.png</property>
                         <style>
                           <class name="fr5_coliseum_bg_img"/>
                         </style>
@@ -3882,8 +3882,8 @@ Tempo de recarga: 1 turno(s)</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="fr6_stared_dragon_aura">
-                        <property name="name">fr6_stared_dragon_aura</property>
+                      <object class="GtkImage" id="fr6_faceoff_dragon_aura">
+                        <property name="name">fr6_faceoff_dragon_aura</property>
                         <property name="width-request">1000</property>
                         <property name="height-request">483</property>
                         <property name="visible">True</property>
@@ -3905,7 +3905,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <style>
                           <class name="fr5_coliseum_font"/>
                           <class name="fr5_coliseum_dragon_name"/>
-                          <class name="fr6_stared_font_size"/>
+                          <class name="fr6_faceoff_font_size"/>
                         </style>
                       </object>
                       <packing>
@@ -3926,7 +3926,7 @@ Tempo de recarga: 1 turno(s)</property>
                           <class name="fr5_coliseum_font"/>
                           <class name="fr5_coliseum_dragon_name"/>
                           <class name="fr5_dragon_name_epic"/>
-                          <class name="fr6_stared_font_size"/>
+                          <class name="fr6_faceoff_font_size"/>
                         </style>
                       </object>
                       <packing>
@@ -3947,7 +3947,7 @@ Tempo de recarga: 1 turno(s)</property>
                           <class name="fr5_coliseum_font"/>
                           <class name="fr5_coliseum_dragon_name"/>
                           <class name="fr5_dragon_name_rare"/>
-                          <class name="fr6_stared_font_size"/>
+                          <class name="fr6_faceoff_font_size"/>
                         </style>
                       </object>
                       <packing>
@@ -3968,7 +3968,7 @@ Tempo de recarga: 1 turno(s)</property>
                           <class name="fr5_coliseum_font"/>
                           <class name="fr5_coliseum_dragon_name"/>
                           <class name="fr5_dragon_name_common"/>
-                          <class name="fr6_stared_font_size"/>
+                          <class name="fr6_faceoff_font_size"/>
                         </style>
                       </object>
                       <packing>
@@ -4009,7 +4009,7 @@ Tempo de recarga: 1 turno(s)</property>
                           <class name="fr5_coliseum_font"/>
                           <class name="fr5_coliseum_dragon_name"/>
                           <class name="fr5_dragon_name_common"/>
-                          <class name="fr6_stared_font_size"/>
+                          <class name="fr6_faceoff_font_size"/>
                         </style>
                       </object>
                       <packing>
@@ -4031,13 +4031,13 @@ Tempo de recarga: 1 turno(s)</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <child>
-                              <object class="GtkFixed" id="fr6_stared_fixed_animation">
-                                <property name="name">fr6_stared_fixed_animation</property>
+                              <object class="GtkFixed" id="fr6_faceoff_fixed_animation">
+                                <property name="name">fr6_faceoff_fixed_animation</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
                                 <child>
-                                  <object class="GtkLabel" id="fr6_stared_dragon_border2">
-                                    <property name="name">fr6_stared_dragon_border2</property>
+                                  <object class="GtkLabel" id="fr6_faceoff_dragon_border2">
+                                    <property name="name">fr6_faceoff_dragon_border2</property>
                                     <property name="width-request">254</property>
                                     <property name="height-request">320</property>
                                     <property name="visible">True</property>
@@ -4053,8 +4053,8 @@ Tempo de recarga: 1 turno(s)</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="fr6_stared_dragon_border">
-                                    <property name="name">fr6_stared_dragon_border</property>
+                                  <object class="GtkLabel" id="fr6_faceoff_dragon_border">
+                                    <property name="name">fr6_faceoff_dragon_border</property>
                                     <property name="width-request">254</property>
                                     <property name="height-request">320</property>
                                     <property name="visible">True</property>
@@ -4070,8 +4070,8 @@ Tempo de recarga: 1 turno(s)</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkImage" id="fr6_stared_player_dragon">
-                                    <property name="name">fr6_stared_player_dragon</property>
+                                  <object class="GtkImage" id="fr6_faceoff_player_dragon">
+                                    <property name="name">fr6_faceoff_player_dragon</property>
                                     <property name="width-request">100</property>
                                     <property name="height-request">80</property>
                                     <property name="visible">True</property>
@@ -4083,13 +4083,13 @@ Tempo de recarga: 1 turno(s)</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkImage" id="fr6_stared_enemy_dragon">
-                                    <property name="name">fr6_stared_enemy_dragon</property>
+                                  <object class="GtkImage" id="fr6_faceoff_enemy_dragon">
+                                    <property name="name">fr6_faceoff_enemy_dragon</property>
                                     <property name="width-request">100</property>
                                     <property name="height-request">80</property>
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="pixbuf">../img_files\dragons\battle_balerion.png</property>
+                                    <property name="pixbuf">../img_files/dragons/battle_balerion.png</property>
                                   </object>
                                   <packing>
                                     <property name="x">-250</property>
@@ -4126,8 +4126,8 @@ Tempo de recarga: 1 turno(s)</property>
                     </child>
                   </object>
                   <packing>
-                    <property name="name">fr6_stared</property>
-                    <property name="title" translatable="yes">fr6_stared</property>
+                    <property name="name">fr6_faceoff</property>
+                    <property name="title" translatable="yes">fr6_faceoff</property>
                   </packing>
                 </child>
                 <child>
@@ -4142,15 +4142,15 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">483</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\battle\Balerion_bg.png</property>
+                        <property name="pixbuf">../img_files/battle/balerion_bg.png</property>
                       </object>
                       <packing>
                         <property name="y">29</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="fr6_stared_dragon_aura1">
-                        <property name="name">fr6_stared_dragon_aura</property>
+                      <object class="GtkImage" id="fr6_faceoff_dragon_aura1">
+                        <property name="name">fr6_faceoff_dragon_aura</property>
                         <property name="width-request">1000</property>
                         <property name="height-request">483</property>
                         <property name="visible">True</property>
@@ -4161,8 +4161,8 @@ Tempo de recarga: 1 turno(s)</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="fr6_stared_dragon_border1">
-                        <property name="name">fr6_stared_dragon_border</property>
+                      <object class="GtkLabel" id="fr6_faceoff_dragon_border1">
+                        <property name="name">fr6_faceoff_dragon_border</property>
                         <property name="width-request">254</property>
                         <property name="height-request">320</property>
                         <property name="visible">True</property>
@@ -4178,8 +4178,8 @@ Tempo de recarga: 1 turno(s)</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="fr6_stared_dragon_border3">
-                        <property name="name">fr6_stared_dragon_border2</property>
+                      <object class="GtkLabel" id="fr6_faceoff_dragon_border3">
+                        <property name="name">fr6_faceoff_dragon_border2</property>
                         <property name="width-request">254</property>
                         <property name="height-request">320</property>
                         <property name="visible">True</property>
@@ -4214,7 +4214,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\dragons\battle_balerion.png</property>
+                        <property name="pixbuf">../img_files/dragons/battle_balerion.png</property>
                       </object>
                       <packing>
                         <property name="x">700</property>
@@ -4366,7 +4366,7 @@ Tempo de recarga: 1 turno(s)</property>
                             <property name="height-request">32</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="pixbuf">../img_files\healthbar_frame.png</property>
+                            <property name="pixbuf">../img_files/healthbar_frame.png</property>
                           </object>
                           <packing>
                             <property name="x">50</property>
@@ -4399,7 +4399,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\dragon_attack_border.png</property>
+                        <property name="pixbuf">../img_files/dragon_attack_border.png</property>
                       </object>
                       <packing>
                         <property name="x">17</property>
@@ -4531,7 +4531,7 @@ Tempo de recarga: 1 turno(s)</property>
                             <property name="height-request">32</property>
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="pixbuf">../img_files\healthbar_frame.png</property>
+                            <property name="pixbuf">../img_files/healthbar_frame.png</property>
                           </object>
                           <packing>
                             <property name="x">50</property>
@@ -4769,7 +4769,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">80</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\arrow_left.png</property>
+                                <property name="pixbuf">../img_files/arrow_left.png</property>
                               </object>
                               <packing>
                                 <property name="x">6</property>
@@ -4782,7 +4782,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">80</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\arrow_right.png</property>
+                                <property name="pixbuf">../img_files/arrow_right.png</property>
                               </object>
                               <packing>
                                 <property name="x">104</property>
@@ -4795,7 +4795,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">80</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\arrow_right.png</property>
+                                <property name="pixbuf">../img_files/arrow_right.png</property>
                               </object>
                               <packing>
                                 <property name="x">198</property>
@@ -4884,7 +4884,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">42</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\meterbar_infernal.png</property>
+                                <property name="pixbuf">../img_files/meterbar_infernal.png</property>
                               </object>
                               <packing>
                                 <property name="x">22</property>
@@ -4898,7 +4898,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">47</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\pointer.png</property>
+                                <property name="pixbuf">../img_files/pointer.png</property>
                               </object>
                               <packing>
                                 <property name="x">139</property>
@@ -4957,7 +4957,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">80</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\challenger_bar.png</property>
+                                <property name="pixbuf">../img_files/challenger_bar.png</property>
                               </object>
                               <packing>
                                 <property name="x">22</property>
@@ -4989,7 +4989,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="label" translatable="yes">X</property>
                                 <style>
                                   <class name="fr5_exp_label"/>
-                                  <class name="fr6_stared_font_size"/>
+                                  <class name="fr6_faceoff_font_size"/>
                                   <class name="color_FFFFFF"/>
                                 </style>
                               </object>
@@ -5005,7 +5005,7 @@ Tempo de recarga: 1 turno(s)</property>
                                 <property name="height-request">40</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="pixbuf">../img_files\pointer_challenge.png</property>
+                                <property name="pixbuf">../img_files/pointer_challenge.png</property>
                               </object>
                               <packing>
                                 <property name="x">129</property>
@@ -5118,7 +5118,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">483</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\battle\Balerion_bg.png</property>
+                        <property name="pixbuf">../img_files/battle/balerion_bg.png</property>
                         <style>
                           <class name="fr5_coliseum_bg_img"/>
                         </style>
@@ -5146,7 +5146,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\banner.png</property>
+                        <property name="pixbuf">../img_files/banner.png</property>
                       </object>
                       <packing>
                         <property name="x">80</property>
@@ -5160,7 +5160,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\banner.png</property>
+                        <property name="pixbuf">../img_files/banner.png</property>
                       </object>
                       <packing>
                         <property name="x">793</property>
@@ -5174,7 +5174,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\victory.png</property>
+                        <property name="pixbuf">../img_files/victory.png</property>
                       </object>
                       <packing>
                         <property name="x">265</property>
@@ -5187,7 +5187,7 @@ Tempo de recarga: 1 turno(s)</property>
                         <property name="height-request">38</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="pixbuf">../img_files\btn_continue.png</property>
+                        <property name="pixbuf">../img_files/btn_continue.png</property>
                         <style>
                           <class name="fr7_btn_continue_img"/>
                         </style>

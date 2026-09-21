@@ -1,25 +1,28 @@
-Jogo dos Dragões — Licença CC BY-NC 4.0
+MIT License
 
-Este projeto é licenciado sob os termos da Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
+Copyright (c) 2025 Dhemerson Sousa de Albuquerque
 
-Você tem permissão para:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-✔️ Compartilhar — copiar e redistribuir o material em qualquer meio ou formato  
-✔️ Adaptar — remixar, transformar, e criar a partir do material
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Desde que respeite as seguintes condições:
-
-1. **Atribuição** — Você deve dar crédito apropriado, prover um link para a licença, e indicar se mudanças foram feitas.
-2. **Não Comercial** — Você não pode usar o material para fins comerciais.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
 
-🔔 **Aviso sobre recursos de terceiros:**
-
-Este projeto inclui **assets (sons, imagens, fontes, músicas)** que **não são de minha autoria**. Esses recursos foram utilizados com fins puramente educacionais e sem intenção comercial.
-
-Se você pretende usar este projeto ou parte dele (inclusive os assets) para qualquer outro fim, é sua responsabilidade verificar os direitos autorais dos arquivos incluídos em `assets/`.
-
----
-
-© 2025 Dhemerson Sousa
+This license applies only to the source code in this repository (src/,
+assets/css/ and assets/ui_files/). It does not apply to the images, sounds,
+music and fonts in assets/, most of which belong to third parties.
+See ASSETS.md for details.

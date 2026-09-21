@@ -24,4 +24,4 @@ accounts/*
 *.bak
 *~
 email_login_rebornned.txt
-bin/.vscode
+src/.vscode

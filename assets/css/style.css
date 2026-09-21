@@ -1,4 +1,4 @@
-/* Universals */
+/* Global styles */
 .universal_font {
     font-family: 'Pixellari';
     text-shadow:
@@ -66,7 +66,7 @@
 /*=============================================================================================== */
 
 /* Títulos das páginas */
-.tittle_labels {
+.title_labels {
     font-size: 96px;
     font-family: 'Pixellari';
     color: #FFFDD0;
@@ -176,7 +176,7 @@
 }
 
 /* Frame 5 principal: Bestiário, Fosso, Colíseu*/
-.fr5_tittles {
+.fr5_titles {
     background-image: linear-gradient(transparent, transparent);
     font-family: 'Pixellari';
     font-size: 64px;
@@ -274,7 +274,7 @@
     color: white;
 }
 
-.fr5_beastiary_border {
+.fr5_bestiary_border {
     background-color: transparent;
     background-image: linear-gradient(transparent, transparent);
     border-width: 0px 0px 1px 0px;
@@ -449,7 +449,7 @@ scrollbar slider:hover {
     border-width: 1px;
 }
 
-.fr5_attack_tittle {
+.fr5_attack_title {
     color: #FFCA75;
     font-size: 20px;
 }
@@ -555,7 +555,7 @@ Frame 5 - Colíseu
     background-image: url('../img_files/return_dragon.png');
 }
 
-.fr6_stared_font_size {
+.fr6_faceoff_font_size {
     font-size: 38px;
 }
 

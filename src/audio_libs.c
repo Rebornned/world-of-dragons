@@ -10,7 +10,7 @@
 audioAssets audioPointer;
 gint currentSound;
 gint soundsPlayed[10];
-musicsBeastiary musicsBackground;
+tracksBestiary tracksBackground;
 
 typedef struct {
     gint index;
@@ -35,12 +35,12 @@ void initAudio() {
     }
     // Preenchendo a lista de músicas dispóniveis
     for(int i=0; i<MUSICS_AVAILABLE; i++) {
-        musicsBackground.musicsAvailable[i] = i;
+        tracksBackground.tracksAvailable[i] = i;
     }
     // Embaralha as músicas para ordem aleatória
-    musicsBackground.currentMusic = 0;
-    musicsBackground.inBattle = FALSE;
-    shuffle(musicsBackground.musicsAvailable, MUSICS_AVAILABLE);
+    tracksBackground.currentMusic = 0;
+    tracksBackground.inBattle = FALSE;
+    shuffle(tracksBackground.tracksAvailable, MUSICS_AVAILABLE);
 
     // Preenche as rotas de canais iniciais dos efeitos sonoros
     for(int i=0; i<10; i++)
@@ -78,17 +78,17 @@ void initAudio() {
     // Músicas
     Mix_VolumeMusic(64); // 50% de volume da música
     // Bestiário Background
-    loadAudio("../assets/sounds/beastiary/after_the_storm.mp3", "after_the_storm", "music", 0, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/fields_of_ard_skellige.mp3", "fields_of_ard_skellige", "music", 1, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/hearts_of_stone.mp3", "hearts_of_stone", "music", 2, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/kaer_morhen.mp3", "kaer_morhen", "music", 3, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/lady_of_the_lake.mp3", "lady_of_the_lake", "music", 4, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/searching_for_cecilia.mp3", "searching_for_cecilia", "music", 5, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/syanna.mp3", "syanna", "music", 6, &audioPointer, 50);
-    loadAudio("../assets/sounds/beastiary/kingdom_dance.mp3", "kingdom_dance", "music", 7, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/after_the_storm.mp3", "after_the_storm", "music", 0, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/fields_of_ard_skellige.mp3", "fields_of_ard_skellige", "music", 1, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/hearts_of_stone.mp3", "hearts_of_stone", "music", 2, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/kaer_morhen.mp3", "kaer_morhen", "music", 3, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/lady_of_the_lake.mp3", "lady_of_the_lake", "music", 4, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/searching_for_cecilia.mp3", "searching_for_cecilia", "music", 5, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/syanna.mp3", "syanna", "music", 6, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/kingdom_dance.mp3", "kingdom_dance", "music", 7, &audioPointer, 50);
     
     // Música menu
-    loadAudio("../assets/sounds/beastiary/reign_of_targaryen.mp3", "reign_of_targaryen", "music", 22, &audioPointer, 50);
+    loadAudio("../assets/sounds/bestiary/reign_of_targaryen.mp3", "reign_of_targaryen", "music", 22, &audioPointer, 50);
 
     // Músicas de batalha
     gchar *dragonsNames[] = {
@@ -101,7 +101,7 @@ void initAudio() {
     };
     // Registra todas as músicas de batalha
     for(int i=0; i < 27; i++) {
-        gchar *musicPath = g_strdup_printf("../assets/sounds/battle_musics/battle_%s.mp3", dragonsNames[i]);
+        gchar *musicPath = g_strdup_printf("../assets/sounds/battle_tracks/battle_%s.mp3", dragonsNames[i]);
         loadAudio(musicPath, dragonsNames[i], "music", i+23, &audioPointer, 50);
     }
     
@@ -110,13 +110,13 @@ void initAudio() {
 gint loadAudio(gchar *path, gchar *name, gchar *type, gint indexSound, audioAssets *audioAssets, gint volume) {
     // Carregamento de áudio e música
     if(strcmp(type, "music") == 0) {
-        audioAssets->musics[indexSound].music = Mix_LoadMUS(path);
-        strcpy(audioAssets->musics[indexSound].name, name);
-        if(!audioAssets->musics[indexSound].music) {
+        audioAssets->tracks[indexSound].music = Mix_LoadMUS(path);
+        strcpy(audioAssets->tracks[indexSound].name, name);
+        if(!audioAssets->tracks[indexSound].music) {
             fprintf(stderr, "Erro ao carregar música de fundo: %s\n", Mix_GetError());
             return -1;
         }
-        //g_print("Música: %s | Carregada com sucesso!!!\n", audioAssets->musics[indexSound].name);
+        //g_print("Música: %s | Carregada com sucesso!!!\n", audioAssets->tracks[indexSound].name);
         return 0;
     }
     if(strcmp(type, "sound") == 0) {
@@ -135,17 +135,17 @@ gint loadAudio(gchar *path, gchar *name, gchar *type, gint indexSound, audioAsse
 
 // Callback quando a música termina
 void on_music_finished() {
-    if(!musicsBackground.inBattle && !musicsBackground.isFinished) {
-        musicsBackground.currentMusic++;
-        if(musicsBackground.currentMusic == MUSICS_AVAILABLE) {
-            shuffle(musicsBackground.musicsAvailable, MUSICS_AVAILABLE);
-            musicsBackground.currentMusic = 0;
+    if(!tracksBackground.inBattle && !tracksBackground.isFinished) {
+        tracksBackground.currentMusic++;
+        if(tracksBackground.currentMusic == MUSICS_AVAILABLE) {
+            shuffle(tracksBackground.tracksAvailable, MUSICS_AVAILABLE);
+            tracksBackground.currentMusic = 0;
         }
-        playMusicByIndex(0, musicsBackground.musicsAvailable[musicsBackground.currentMusic], &audioPointer, 0);
+        playMusicByIndex(0, tracksBackground.tracksAvailable[tracksBackground.currentMusic], &audioPointer, 0);
         g_print("Tocando música dos backgrounds\n");
     }
     g_print("Música terminou. Você pode carregar a próxima aqui.\n");
-    musicsBackground.isFinished = FALSE;
+    tracksBackground.isFinished = FALSE;
 }
 
 // =============================================================================================
@@ -153,14 +153,14 @@ void on_music_finished() {
 // *********************************************************************************************
 // Toca música de fundo através do seu index
 void playMusicByIndex(gint timeout, gint index, audioAssets *assets, gint loop) {
-    if (!assets->musics[index].music) {
+    if (!assets->tracks[index].music) {
         g_print("Erro ao carregar música: %d | ERROR: %s\n", index, Mix_GetError());
         return;
     }
     if(timeout == 0) {
-        g_print("%s -> Tocando agora...\n", assets->musics[index].name);
+        g_print("%s -> Tocando agora...\n", assets->tracks[index].name);
         Mix_HaltMusic();
-        Mix_PlayMusic(assets->musics[index].music, loop);
+        Mix_PlayMusic(assets->tracks[index].music, loop);
         Mix_HookMusicFinished(on_music_finished);  // Signal que aciona ao finalizar a música
     }
     else {
@@ -183,8 +183,8 @@ gboolean timedPlayMusicByIndex(gpointer data) {
 void playMusicByName(gint timeout, gchar *name, audioAssets *assets, gint loop) {
     gint index = -1;
     for(int i=0; i < 50; i++) {
-        //g_print("Musica verificada: %s\n", assets->musics[i].name);
-        if(assets->musics[i].name && strcmp(assets->musics[i].name, name) == 0) {
+        //g_print("Musica verificada: %s\n", assets->tracks[i].name);
+        if(assets->tracks[i].name && strcmp(assets->tracks[i].name, name) == 0) {
             index = i;
             break;
         }
@@ -200,7 +200,7 @@ void playMusicByName(gint timeout, gchar *name, audioAssets *assets, gint loop) 
 
 // Para a música atual
 void stopCurrentMusic() {
-    musicsBackground.isFinished = TRUE;
+    tracksBackground.isFinished = TRUE;
     Mix_HaltMusic();
 }
 //==========================================================================================
@@ -270,8 +270,8 @@ void cleanupAudio() {
     stopAllSounds();
 
     for(int i=0; i<50; i++) {
-        if(audioPointer.musics[i].music)
-            Mix_FreeMusic(audioPointer.musics[i].music);
+        if(audioPointer.tracks[i].music)
+            Mix_FreeMusic(audioPointer.tracks[i].music);
         if(audioPointer.sounds[i].sound)
             Mix_FreeChunk(audioPointer.sounds[i].sound);
     }

@@ -8,7 +8,6 @@
 
 FILE * createAccountslistfile();
 FILE * createBeastslistfile();
-FILE * createBeastslistfile();
 FILE * createAttackslistfile();
 FILE * getAccountfile(char *username);
 
@@ -82,7 +81,14 @@ int beastsLength(FILE *pFile) {
     return ftell(pFile) / sizeof(Dragon);
 }
 
+// A pasta de saves não é versionada, então pode não existir em uma cópia
+// recém-clonada. Sem ela, fopen retorna NULL e o jogo falha no primeiro save.
+static void ensureAccountsDir() {
+    g_mkdir_with_parents("../accounts", 0755);
+}
+
 FILE * createAccountslistfile() {
+    ensureAccountsDir();
     FILE *pFile = fopen("../accounts/accountsList.bin", "rb+");
 
     if(!(pFile)) {
@@ -94,7 +100,11 @@ FILE * createAccountslistfile() {
 FILE * getAccountfile(char *username) {
     char accountName[200];
     sprintf(accountName, "../accounts/account_%s.bin", username);
+    ensureAccountsDir();
     FILE *pFile = fopen(accountName, "ab+");
+    if (pFile == NULL) {
+        return NULL;
+    }
     rewind(pFile);
     return pFile;
 }
@@ -234,14 +244,14 @@ void reinsFile(FILE *pFile) {
 
 // Sort especial, dependendo do tipo, organiza com base em diferentes tipos de atributo
 Dragon * bubbleSort(int type, Dragon * vector, int length) {
-    int ordened = 1, sortbyAttribute1, sortbyAttribute2;
+    int swapped = 1, sortbyAttribute1, sortbyAttribute2;
     Dragon dragonAux, ent1, ent2;
     
     if(vector == NULL || length == 1)
         return vector;
 
-    while(ordened == 1) {
-        ordened = 0;
+    while(swapped == 1) {
+        swapped = 0;
         for(int i=0; i < length-1; i++) {
             ent1 = vector[i];
             ent2 = vector[i+1];
@@ -285,7 +295,7 @@ Dragon * bubbleSort(int type, Dragon * vector, int length) {
             }
             
             if(sortbyAttribute1 < sortbyAttribute2) {
-                ordened = 1;
+                swapped = 1;
                 dragonAux = vector[i];
                 vector[i] = vector[i+1];
                 vector[i+1] = dragonAux;
