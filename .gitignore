@@ -7,6 +7,7 @@
 bin_aux/
 extract_all/
 winDistribution/
+installer/Output/
 *.so
 *.a
 

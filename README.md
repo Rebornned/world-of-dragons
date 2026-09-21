@@ -182,9 +182,11 @@ O executável precisa rodar a partir de `src/`, porque os caminhos de assets, da
 
 ---
 
-## Limitações conhecidas
+## Status e limitações conhecidas
 
-- **`main.c` concentra boa parte da lógica.** O projeto foi escrito enquanto eu aprendia C, e a separação em módulos veio depois. O arquivo principal ainda reúne a integração com a interface e o fluxo de várias telas, e é o próximo alvo de refatoração.
+O projeto está concluído e não recebe novas atualizações. Ele foi desenvolvido enquanto eu aprendia C, e as limitações abaixo ficam registradas como parte da história dele, em vez de corrigidas.
+
+- **`main.c` concentra boa parte da lógica.** A separação em módulos veio no meio do desenvolvimento, e o arquivo principal ainda reúne a integração com a interface e o fluxo de várias telas. Hoje eu estruturaria o projeto em módulos por tela desde o início.
 - **O formato dos saves depende do layout das structs.** Como os registros são gravados byte a byte, alterar um campo de `Player` ou `Dragon` invalida os arquivos existentes. Um formato versionado resolveria isso.
 - **Caminhos relativos ao diretório de execução.** O jogo precisa ser iniciado de dentro de `src/`. Resolver os caminhos a partir da localização do executável eliminaria essa restrição.
 
